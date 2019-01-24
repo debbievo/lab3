@@ -4,7 +4,12 @@
  */
 
 exports.view = function(req, res){
-  res.render('index', {
-  	'name': '',
+	var displayName = req.params.userName;
+	console.log("name is " + displayName);
+  	if(req.params.userName == undefined){
+  		displayName = "World";
+  	}
+  	res.render('index', {
+  		'name': displayName,
   });
 };
